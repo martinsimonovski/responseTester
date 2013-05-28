@@ -79,12 +79,16 @@ function changeSize(size, elem, t){
     var s = size.split('x');
     $(elem).css('width', s[0]);
     $(elem).css('height', s[1]);
+    var icon = $(t).find('i');
+
+    //console.log(icon);
+    changeIcons(null);
     if ( $(t).attr('data') != 'Widescreen' ){
         $(t).attr('data-viewport', (s[1] + 'x'+ s[0]));
     }
     var container_size = (parseInt(s[1])+50).toString();
     $('.container').css('height', container_size);
-    var icon = $(t).find('i');
+
 
     var classes = {
         "1" : "icon-phone-portrait-s-white",
@@ -96,7 +100,6 @@ function changeSize(size, elem, t){
         "7" : "icon-tablet-portrait-white",
         "8" : "icon-tablet-landscape-white"
     };
-
 
 
     if( icon.hasClass(classes[1]) ){
@@ -126,6 +129,35 @@ function changeSize(size, elem, t){
     }
 
 
+}
 
+function changeIcons(elem){
+    var s = {
+        "1" : "icon-phone-portrait-s-white",
+        "2" : "icon-phone-landscape-s-white",
+        "3" : "icon-phone-portrait-white",
+        "4" : "icon-phone-landscape-white",
+        "5" : "icon-tablet-portrait-s-white",
+        "6" : "icon-tablet-landscape-s-white",
+        "7" : "icon-tablet-portrait-white",
+        "8" : "icon-tablet-landscape-white"
+    };
 
+    $('.pl').each(function(index){
+
+        if( index == 0){
+            $(this).find('i').removeClass(s[2]);
+            $(this).find('i').addClass(s[1]);
+        }else if ( index == 1 ){
+            $(this).find('i').removeClass(s[4]);
+            $(this).find('i').addClass(s[3]);
+        }else if ( index == 2 ){
+            $(this).find('i').removeClass(s[6]);
+            $(this).find('i').addClass(s[5]);
+        }else if ( index == 3 ){
+            $(this).find('i').removeClass(s[8]);
+            $(this).find('i').addClass(s[7]);
+        }
+
+    });
 }
