@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $('.page-size').on('click', function(){
         var size = $(this).attr('data-viewport');
-        changeSize(size, '.page-container');
+        changeSize(size, '.page-container', this);
     });
     $('.page-size-full').on('click', function(){
         $('.page-container').css('width', '100%');
@@ -13,6 +13,11 @@ $(document).ready(function(){
     });
 
     $('.icon').on('mouseover', function(){
+        var device = $(this).parent().first().attr('data');
+        var size = $(this).parent().first().attr('data-viewport');
+        $('.icon-description').text( device + ' "' + size + '"' );
+    });
+    $('.icon').on('click', function(){
         var device = $(this).parent().first().attr('data');
         var size = $(this).parent().first().attr('data-viewport');
         $('.icon-description').text( device + ' "' + size + '"' );
@@ -70,11 +75,57 @@ $(document).ready(function(){
     });
 });
 
-function changeSize(size, elem){
+function changeSize(size, elem, t){
     var s = size.split('x');
     $(elem).css('width', s[0]);
     $(elem).css('height', s[1]);
+    if ( $(t).attr('data') != 'Widescreen' ){
+        $(t).attr('data-viewport', (s[1] + 'x'+ s[0]));
+    }
     var container_size = (parseInt(s[1])+50).toString();
     $('.container').css('height', container_size);
+    var icon = $(t).find('i');
+
+    var classes = {
+        "1" : "icon-phone-portrait-s-white",
+        "2" : "icon-phone-landscape-s-white",
+        "3" : "icon-phone-portrait-white",
+        "4" : "icon-phone-landscape-white",
+        "5" : "icon-tablet-portrait-s-white",
+        "6" : "icon-tablet-landscape-s-white",
+        "7" : "icon-tablet-portrait-white",
+        "8" : "icon-tablet-landscape-white"
+    };
+
+
+
+    if( icon.hasClass(classes[1]) ){
+        icon.removeClass(classes[1]);
+        icon.addClass(classes[2]);
+    }else if( icon.hasClass(classes[2]) ){
+        icon.removeClass(classes[2]);
+        icon.addClass(classes[1]);
+    }else if( icon.hasClass(classes[3]) ){
+        icon.removeClass(classes[3]);
+        icon.addClass(classes[4]);
+    }else if( icon.hasClass(classes[4]) ){
+        icon.removeClass(classes[4]);
+        icon.addClass(classes[3]);
+    }else if( icon.hasClass(classes[5]) ){
+        icon.removeClass(classes[5]);
+        icon.addClass(classes[6]);
+    }else if( icon.hasClass(classes[6]) ){
+        icon.removeClass(classes[6]);
+        icon.addClass(classes[5]);
+    }else if( icon.hasClass(classes[7]) ){
+        icon.removeClass(classes[7]);
+        icon.addClass(classes[8]);
+    }else if( icon.hasClass(classes[8]) ){
+        icon.removeClass(classes[8]);
+        icon.addClass(classes[7]);
+    }
+
+
+
 
 }

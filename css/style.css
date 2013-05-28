@@ -104,22 +104,25 @@ button.http_active {
     background-image:url('../img/zigzag.png');
     display:block;
 }
-
 .page-container{
     width:320px;
     height:480px;
     margin:30px auto;
     background: rgba(0,0,0,0.7);
-    position: relative;
+
     transition: all 0.5s ease-out;
     -webkit-transition: all 0.5s ease-out;
-    paggin: 0px;
-    box-shadow: 0px 0px 3px 1px #888;
+    padding: 0px;
+    box-shadow: 0px 0px 0px 1px #888;
+    overflow: hidden;
 }
 .page{
-  width: 100%;
-  height: 100%;
-  border:none;
+    width:100%;
+    height:100%;
+    border:none;
+}
+iframe{
+    overflow:hidden;
 }
 .icon-description{
     font-size: 11px;
@@ -238,4 +241,14 @@ button.http_active {
 }
 .custom-size-container input:first-child{
     margin-left: 5px;
+}
+.dragbar{
+   background-color:white;
+   height:70px;
+   margin-left: 10px;
+   width: 3px;
+   cursor: col-resize;
+   z-index: 9999;
+   position: absolute;
+   top: 220px;
 }

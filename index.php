@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php //dragar http://jsfiddle.net/gaby/Bek9L/186/ ?>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -32,11 +33,12 @@
               <button class="custom-btn"><i class="icon-crop-white icon-transparent"></i></button>
         </div>
         <div class="container">
-            <div class="page-container">
-                <iframe class="page" src=""></iframe>
-                <!--<iframe class="page" src="http://localhost/testApp/responseTable"></iframe>-->
-            </div>
+                <div class="page-container">
+                    <iframe class="page" src=""></iframe>
+                </div>
+                <!--<div class="dragbar"></div>-->
         </div>
+
 
     </body>
 </html>
