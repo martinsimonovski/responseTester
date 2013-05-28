@@ -18,7 +18,7 @@
                 <li><a href="#" class="page-size" data-viewport="600x800" data="Small tablet"><i class="icon icon-tablet-portrait-s-white icon-transparent"></i></a></li>
                 <li><a href="#" class="page-size" data-viewport="768x1024" data="Tablet"><i class="icon icon-tablet-portrait-white icon-transparent"></i></a></li>
                 <li><a href="#" class="page-size" data-viewport="1280x800" data="Widescreen"><i class="icon icon-widescreen-white icon-transparent"></i></a></li>
-                <li><a href="#" class="custom-page-size" data-viewport="1280x800" data="Custom"><i class="icon icon-plus-white icon-transparent"></i></a></li>
+                <li><a href="#" class="custom-page-size" data-viewport="" data="Custom"><i class="icon icon-plus-white icon-transparent"></i></a></li>
             </ul>
 
             <p class="icon-description">Apple iPhone "320x480"</p>
