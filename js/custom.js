@@ -80,9 +80,9 @@ function changeSize(size, elem, t){
     $(elem).css('width', s[0]);
     $(elem).css('height', s[1]);
     var icon = $(t).find('i');
+    var index = $('.page-size').index(t);
 
-    //console.log(icon);
-    changeIcons(null);
+    //changeIcons(index);
     if ( $(t).attr('data') != 'Widescreen' ){
         $(t).attr('data-viewport', (s[1] + 'x'+ s[0]));
     }
@@ -100,35 +100,7 @@ function changeSize(size, elem, t){
         "7" : "icon-tablet-portrait-white",
         "8" : "icon-tablet-landscape-white"
     };
-
-
-    if( icon.hasClass(classes[1]) ){
-        icon.removeClass(classes[1]);
-        icon.addClass(classes[2]);
-    }else if( icon.hasClass(classes[2]) ){
-        icon.removeClass(classes[2]);
-        icon.addClass(classes[1]);
-    }else if( icon.hasClass(classes[3]) ){
-        icon.removeClass(classes[3]);
-        icon.addClass(classes[4]);
-    }else if( icon.hasClass(classes[4]) ){
-        icon.removeClass(classes[4]);
-        icon.addClass(classes[3]);
-    }else if( icon.hasClass(classes[5]) ){
-        icon.removeClass(classes[5]);
-        icon.addClass(classes[6]);
-    }else if( icon.hasClass(classes[6]) ){
-        icon.removeClass(classes[6]);
-        icon.addClass(classes[5]);
-    }else if( icon.hasClass(classes[7]) ){
-        icon.removeClass(classes[7]);
-        icon.addClass(classes[8]);
-    }else if( icon.hasClass(classes[8]) ){
-        icon.removeClass(classes[8]);
-        icon.addClass(classes[7]);
-    }
-
-
+    classReplace($(t).find('i')[index], classes[1*index+(1+index)], classes[2*index+(2)]);
 }
 
 function changeIcons(elem){
@@ -144,20 +116,30 @@ function changeIcons(elem){
     };
 
     $('.pl').each(function(index){
-
-        if( index == 0){
+        if( index == 0 && index != elem){
             $(this).find('i').removeClass(s[2]);
             $(this).find('i').addClass(s[1]);
-        }else if ( index == 1 ){
+        }else if ( index == 1 && index != elem ){
             $(this).find('i').removeClass(s[4]);
             $(this).find('i').addClass(s[3]);
-        }else if ( index == 2 ){
+        }else if ( index == 2 && index != elem ){
             $(this).find('i').removeClass(s[6]);
             $(this).find('i').addClass(s[5]);
-        }else if ( index == 3 ){
+        }else if ( index == 3 && index != elem ){
             $(this).find('i').removeClass(s[8]);
             $(this).find('i').addClass(s[7]);
         }
-
     });
+}
+
+function classReplace(elem, c1, c2){
+
+    if( $(elem).hasClass(c1)){
+        $(elem).removeClass(c1);
+        $(elem).addClass(c2);
+    }else{
+        $(elem).removeClass(c2);
+        $(elem).addClass(c1);
+    }
+
 }
