@@ -101,6 +101,34 @@ function changeSize(size, elem, t){
         "8" : "icon-tablet-landscape-white"
     };
     classReplace($(t).find('i')[index], classes[1*index+(1+index)], classes[2*index+(2)]);
+
+    /*
+     if( icon.hasClass(classes[1]) ){
+        icon.removeClass(classes[1]);
+        icon.addClass(classes[2]);
+    }else if( icon.hasClass(classes[2]) ){
+        icon.removeClass(classes[2]);
+        icon.addClass(classes[1]);
+    }else if( icon.hasClass(classes[3]) ){
+        icon.removeClass(classes[3]);
+        icon.addClass(classes[4]);
+    }else if( icon.hasClass(classes[4]) ){
+        icon.removeClass(classes[4]);
+        icon.addClass(classes[3]);
+    }else if( icon.hasClass(classes[5]) ){
+        icon.removeClass(classes[5]);
+        icon.addClass(classes[6]);
+    }else if( icon.hasClass(classes[6]) ){
+        icon.removeClass(classes[6]);
+        icon.addClass(classes[5]);
+    }else if( icon.hasClass(classes[7]) ){
+        icon.removeClass(classes[7]);
+        icon.addClass(classes[8]);
+    }else if( icon.hasClass(classes[8]) ){
+        icon.removeClass(classes[8]);
+        icon.addClass(classes[7]);
+    }
+     */
 }
 
 function changeIcons(elem){
